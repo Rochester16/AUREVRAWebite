@@ -1,0 +1,197 @@
+/* ===== VARIABLES (REPLACE WITH YOUR PROJECT'S VARS) ===== */
+:root {
+    --text-dark: #2c2216; /* Deep, warm brown bg */
+    --text-light: #f5e4c3; /* Light cream text */
+    --gold: #c0a062; /* Gold accent color */
+    --gold-muted: #a38955; /* Slightly darker gold for lines/subtext */
+}
+
+body {
+    margin: 0;
+    font-family: 'Cinzel', serif; /* Example serif font, replace with yours */
+    background-color: #f0f0f0;
+}
+
+/* ===== FOOTER CONTAINER ===== */
+.footer-container {
+    width: 100%;
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    margin-top: auto;
+}
+
+/* ===== FOOTER CONTENT MAIN LAYOUT ===== */
+.footer-content {
+    display: grid;
+    /* Split into two main areas: Brand (left) and Info (right) */
+    grid-template-columns: 1fr 3fr;
+    gap: 40px;
+    padding: 60px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== BRAND SECTION (LEFT) ===== */
+.brand-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to the left */
+}
+
+.footer-logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.brand-title {
+    color: var(--gold);
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0;
+    line-height: 1;
+}
+
+.brand-sub {
+    font-size: 1rem;
+    color: var(--gold-muted);
+    letter-spacing: 6px; /* Wide spacing for "JEWELRY" */
+    margin: 5px 0 0 2px;
+    text-transform: uppercase;
+}
+
+/* ===== SOCIAL ICONS ===== */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 40px; /* Spacing from brand text */
+}
+
+.social-icons a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    /* No filter needed if you use the pre-colored icons provided below */
+    transition: transform 0.26s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+/* ===== INFO GRID SECTION (RIGHT) ===== */
+.info-grid {
+    display: grid;
+    /* Three equal columns for the info layout */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* ===== FOOTER COLUMNS & TYPOGRAPHY ===== */
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Utility class for spacing between stacked groups */
+.mt-large {
+    margin-top: 40px;
+}
+
+.footer-column h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-column hr {
+    border: none;
+    border-top: 1px solid var(--gold-muted);
+    margin: 0 0 15px 0;
+    width: 100%; /* Full width line */
+}
+
+.footer-column p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 8px 0;
+    color: rgba(245, 228, 195, 0.9); /* Slightly transparent cream */
+}
+
+/* ===== FOOTER BOTTOM ===== */
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.1); /* Slightly darker background */
+    color: var(--gold-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--gold-muted);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet Portrait (stacks brand on top of info grid) */
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 1fr; /* Single column layout */
+        padding: 50px 40px;
+        text-align: center;
+    }
+
+    .brand-section {
+        align-items: center; /* Center brand info */
+        margin-bottom: 40px;
+    }
+
+    .social-icons {
+        justify-content: center;
+        margin-top: 30px;
+    }
+    
+    /* Info grid remains 3 columns but centered */
+    .info-grid {
+        text-align: left; 
+    }
+    .footer-column h3, .footer-column p {
+        text-align: center;
+    }
+}
+
+/* Mobile Landscape (info grid becomes 2 columns) */
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+}
+
+/* Mobile Portrait (everything stacks) */
+@media (max-width: 480px) {
+    .footer-content {
+        padding: 40px 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr; /* 1 column stack */
+        gap: 40px;
+    }
+
+    .footer-column h3, .footer-column p {
+        text-align: center;
+    }
+    
+    /* On mobile, the "About Us" margin isn't needed as much */
+    .mt-large {
+        margin-top: 30px;
+    }
+
+    .brand-title { font-size: 1.8rem; }
+    .brand-sub { font-size: 0.9rem; }
+}

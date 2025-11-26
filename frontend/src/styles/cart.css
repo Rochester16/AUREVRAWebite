@@ -1,0 +1,277 @@
+/* ========================================= */
+/* 🛒 CART PAGE STYLES                       */
+/* ========================================= */
+
+/* 🌙 DARK MODE FIX - FORCE BACKGROUND */
+html.dark-mode,
+body.dark-mode,
+body.dark-mode .cart-page-container {
+    background-color: #121212 !important;
+    color: #f5e4c3 !important;
+}
+
+.cart-page-container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 85vh;
+}
+
+.page-title {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    color: #2c2216;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* --- EMPTY CART STATE (FIXED) --- */
+.empty-cart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh; /* Takes up vertical space */
+    text-align: center;
+}
+
+.empty-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: #666;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    color: #e0e0e0; /* Subtle Gray */
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: #4169E1; /* Royal Blue Default */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #caa54e; /* Gold Hover */
+    transform: translateY(-2px);
+}
+
+/* --- CART ITEM CARD --- */
+.cart-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-item-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.item-image {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #f9f9f9;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c2216;
+    margin-bottom: 5px;
+}
+
+.item-price {
+    color: #caa54e;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* --- ACTIONS (Top-Down Stack) --- */
+.item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    min-width: 120px;
+}
+
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f9f9f9;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background: white;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.qty-btn:hover:not(:disabled) {
+    border-color: #caa54e;
+    color: #caa54e;
+}
+
+.qty-value {
+    font-weight: 600;
+    width: 25px;
+    text-align: center;
+    color: #2c2216;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: #d9534f;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.remove-btn:hover {
+    color: #c9302c;
+}
+
+/* --- SIDEBAR --- */
+.summary-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 100px;
+}
+
+.summary-title {
+    font-family: 'Georgia', serif;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #2c2216;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: #666;
+}
+
+.summary-row.total {
+    font-weight: 700;
+    color: #2c2216;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #2c2216;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-top: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #caa54e;
+    transform: translateY(-2px);
+}
+
+/* --- DARK MODE OVERRIDES --- */
+body.dark-mode .page-title { color: #f5e4c3; }
+
+/* Cards in Dark Mode */
+body.dark-mode .cart-item-card,
+body.dark-mode .summary-card {
+    background-color: #1e1e1e;
+    border-color: #333;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .item-name { color: #f5e4c3; }
+body.dark-mode .summary-title, 
+body.dark-mode .summary-row.total { 
+    color: #f5e4c3; 
+    border-color: #333; 
+}
+body.dark-mode .summary-row { color: #bbb; }
+
+/* Controls in Dark Mode */
+body.dark-mode .qty-controls { background-color: #2a2a2a; border-color: #444; }
+body.dark-mode .qty-value { color: #f5e4c3; }
+body.dark-mode .qty-btn { background-color: #333; border-color: #555; color: #fff; }
+body.dark-mode .qty-btn:hover { border-color: #caa54e; color: #caa54e; }
+
+/* Empty State Dark Mode */
+body.dark-mode .empty-content { color: #b0b0b0; }
+body.dark-mode .empty-icon { color: #333; }
+body.dark-mode .btn-primary { background-color: #caa54e; color: #121212; }
+body.dark-mode .btn-primary:hover { background-color: #fff; }
+
+body.dark-mode .checkout-btn { background-color: #caa54e; color: #1a1a1a; }
+body.dark-mode .checkout-btn:hover { background-color: #fff; }

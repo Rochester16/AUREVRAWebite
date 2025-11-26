@@ -1,0 +1,330 @@
+/* Navbar Container */
+.user-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #f9eccd; /* The cream color from your image */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Brand Style */
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #4a3b2b;
+    font-weight: bold;
+    font-size: 1.2rem;
+    gap: 10px;
+}
+.logo { height: 40px; }
+
+/* Navigation Links */
+.nav-links-group {
+    display: flex;
+    gap: 25px;
+    margin-right: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #5c4a35;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #a67c00; /* Goldish hover */
+}
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    margin-right: 15px;
+}
+
+.search-input {
+    padding: 8px 35px 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 0.9rem;
+    background: rgba(255,255,255,0.6);
+}
+
+.search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* ===== THE ICON BUBBLES (The Fix) ===== */
+.icons-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* The circular container */
+.icon-bubble {
+    width: 45px;
+    height: 45px;
+    background-color: #e6e6e6; /* The gray background from the image */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+.icon-bubble:hover {
+    background-color: #d1d1d1;
+    transform: translateY(-2px);
+}
+
+/* Icon colors inside the bubble */
+.icon-bubble i {
+    font-size: 1.2rem;
+    color: #3e3221; /* Dark brownish-black */
+}
+
+/* Specific styling for Profile Icon to match image (dark circle inside light bubble?) */
+/* If you want the profile icon to look exactly like the image (dark filled circle): */
+.profile-bubble i {
+    font-size: 1.4rem;
+}
+
+/* Cart Badge */
+.cart-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background-color: #a67c00;
+    color: white;
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #f9eccd;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 10px 0;
+    list-style: none;
+    width: 150px;
+    z-index: 1001;
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a, .dropdown-menu button {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.dropdown-menu a:hover, .dropdown-menu button:hover {
+    background-color: #f5f5f5;
+}
+
+
+/* ========================================= */
+/* 👇 ADD THIS TO THE BOTTOM OF UserNavbar.css */
+/* ========================================= */
+
+/* 1. Dark Navbar Background */
+body.dark-mode .user-navbar {
+    background-color: #1a1a1a; /* Dark charcoal/black */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    border-bottom: 1px solid #333;
+}
+
+/* 2. Text Links turn Light */
+body.dark-mode .brand,
+body.dark-mode .nav-link {
+    color: #e0e0e0; /* Light gray text */
+}
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link.active {
+    color: #d4af37; /* Gold hover for contrast */
+}
+
+/* 3. The Bubbles in Dark Mode */
+body.dark-mode .icon-bubble {
+    background-color: #333333; /* Darker bubble */
+    border: 1px solid #444;
+}
+
+body.dark-mode .icon-bubble:hover {
+    background-color: #444444;
+    border-color: #d4af37; /* Gold border on hover */
+}
+
+/* 4. The Icons Inside Bubbles turn Light */
+body.dark-mode .icon-bubble i {
+    color: #f5f5f5; /* Almost white icon */
+}
+
+/* 5. Search Bar Dark Mode */
+body.dark-mode .search-input {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: #444;
+}
+
+body.dark-mode .search-input::placeholder {
+    color: #aaa;
+}
+
+body.dark-mode .search-icon {
+    color: #aaa;
+}
+
+/* 6. Dropdown Menu Dark Mode */
+body.dark-mode .dropdown-menu {
+    background-color: #222;
+    border: 1px solid #333;
+}
+
+body.dark-mode .dropdown-menu a,
+body.dark-mode .dropdown-menu button {
+    color: #e0e0e0;
+}
+
+body.dark-mode .dropdown-menu a:hover,
+body.dark-mode .dropdown-menu button:hover {
+    background-color: #333;
+    color: #d4af37;
+}
+
+/* ========================================= */
+/* 6. PROFILE DROPDOWN FIX                   */
+/* ========================================= */
+
+/* The parent container needs to be relative so the menu sticks to it */
+.profile-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* The Menu Box */
+.custom-dropdown-menu {
+    position: absolute;
+    top: 55px; /* Pushes it down below the bubble */
+    right: 0;  /* Aligns to the right edge of the bubble */
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    border-radius: 12px;
+    padding: 8px 0;
+    list-style: none;
+    z-index: 9999; /* STAYS ON TOP OF EVERYTHING */
+    border: 1px solid #f0f0f0;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Menu Links */
+.custom-dropdown-menu li {
+    display: block;
+}
+
+.custom-dropdown-menu a,
+.custom-dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #4a4a4a;
+    font-size: 0.9rem;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.custom-dropdown-menu a:hover,
+.custom-dropdown-menu button:hover {
+    background-color: #f9eccd; /* Cream hover */
+    color: #a67c00;
+}
+
+/* Little triangle arrow on top (Optional aesthetic) */
+.custom-dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    right: 14px;
+    width: 12px;
+    height: 12px;
+    background: white;
+    transform: rotate(45deg);
+    border-top: 1px solid #f0f0f0;
+    border-left: 1px solid #f0f0f0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* DARK MODE FIX FOR DROPDOWN */
+body.dark-mode .custom-dropdown-menu {
+    background-color: #2a2a2a;
+    border-color: #444;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .custom-dropdown-menu::before {
+    background: #2a2a2a;
+    border-color: #444;
+}
+
+body.dark-mode .custom-dropdown-menu a,
+body.dark-mode .custom-dropdown-menu button {
+    color: #e0e0e0;
+}
+
+body.dark-mode .custom-dropdown-menu a:hover,
+body.dark-mode .custom-dropdown-menu button:hover {
+    background-color: #444;
+    color: #d4af37;
+}

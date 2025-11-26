@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ============================
+   AUREVRA THEME VARIABLES
+   ============================ */
+:root {
+    /* ☀️ LIGHT MODE (Default) */
+    --bg: #f9f7f4;              /* Cream background */
+    --panel: #ffffff;           /* White cards */
+    --border: #e0e0e0;          /* Light borders */
+    --text: #2c2216;            /* Dark Brown Text */
+    --text-light: #666666;      /* Muted Text */
+    
+    --gold: #caa54e;            /* Brand Gold */
+    --gold-dark: #b08d3b;       /* Darker Gold for hover */
+    
+    --shadow: 0 4px 20px rgba(0,0,0,0.05);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --gap: 20px;
+}
+
+/* 🌙 DARK MODE VARIABLES (The Magic Switch) */
+body.dark-mode {
+    --bg: #121212;              /* Deep Black Bg */
+    --panel: #1e1e1e;           /* Dark Gray Cards */
+    --border: #333333;          /* Dark Borders */
+    --text: #f5e4c3;            /* Cream Text (Readable!) */
+    --text-light: #b0b0b0;      /* Light Gray Muted */
+    
+    --shadow: 0 10px 30px rgba(0,0,0,0.5); /* Deeper shadow for depth */
+}
+
+/* ============================
+   GLOBAL BODY
+   ============================ */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--bg) !important; /* Enforce variable color */
+    color: var(--text) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden; /* Prevents horizontal scrollbars */
+}
+
+/* Disable weird overlays */
+body::before, body::after { content: none !important; }
+
+/* ============================
+   CONTAINER & LAYOUT
+   ============================ */
+.app-container {
+    padding: 40px 25px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.main-content {
+    min-height: 80vh;
+}
+
+/* ============================
+   NAVBAR (Global)
+   ============================ */
+.navbar {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar a {
+    color: var(--text);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.navbar a:hover {
+    color: var(--gold);
+}
+
+/* ============================
+   UI COMPONENTS (Cards, Buttons)
+   ============================ */
+
+/* Smooth transitions */
+* { transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+
+/* Buttons */
+.btn { 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 8px; 
+    padding: 12px 20px; 
+    border-radius: var(--radius-sm); 
+    font-weight: 600; 
+    cursor: pointer; 
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.btn-primary { 
+    background-color: var(--gold); 
+    color: #fff; /* Always white text on gold button */
+}
+.btn-primary:hover { 
+    background-color: var(--gold-dark); 
+    transform: translateY(-2px); 
+}
+
+.btn-ghost { 
+    background: transparent; 
+    border: 1px solid var(--border); 
+    color: var(--text); 
+}
+.btn-ghost:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* Cards */
+.card { 
+    background-color: var(--panel); 
+    border-radius: var(--radius-md); 
+    padding: 20px; 
+    box-shadow: var(--shadow); 
+    border: 1px solid var(--border); 
+}
+
+/* Product Grid */
+.products-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: var(--gap); 
+}
+
+/* ========================================= */
+/* 🌙 GLOBAL DARK MODE OVERRIDES (FIXED)     */
+/* ========================================= */
+
+/* 1. Force the Browser Window (HTML/Body) to be Black 
+      This kills the white bars on the sides! 
+*/
+html.dark-mode,
+body.dark-mode,
+body.dark-mode #root {
+    background-color: #121212 !important;
+    color: #f5e4c3 !important;
+    min-height: 100vh; 
+    width: 100%;
+}
+
+/* 2. Make Page Containers Transparent 
+      This lets the black body background show through.
+*/
+body.dark-mode .app-container,
+body.dark-mode .shop-page,
+body.dark-mode .cart-page-container, /* Fixed: Cart will now blend in */
+body.dark-mode .wishlist-page,
+body.dark-mode .main-content {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 3. Fix Scrollbars to look sleek in dark mode */
+body.dark-mode::-webkit-scrollbar {
+    width: 12px;
+}
+body.dark-mode::-webkit-scrollbar-track {
+    background: #121212;
+}
+body.dark-mode::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 6px;
+    border: 3px solid #121212;
+}
+
+
+/* ================================================= */
+/* 🌚 FORCE FULL SCREEN DARK MODE (THE NUCLEAR FIX) */
+/* ================================================= */
+
+/* If the class is attached to #root or .App, 
+   we force it to fill the screen and be black.
+*/
+#root.dark-mode, 
+.App.dark-mode, 
+.dark-mode .app-container {
+    background-color: #121212 !important;
+    min-height: 100vh;
+    width: 100vw; /* Force full viewport width */
+    margin: 0;
+}
+
+/* This is the fallback: If the body is visible, 
+   make it black if *any* child has dark mode 
+   (Note: This :has selector works in modern browsers)
+*/
+body:has(.dark-mode) {
+    background-color: #121212 !important;
+}
+
+/* Last resort: Ensure the cart page itself 
+   stretches to cover the white bars 
+*/
+body.dark-mode .cart-page-container,
+.dark-mode .cart-page-container {
+    background-color: #121212 !important;
+    max-width: 100% !important; /* Stretch to edges */
+    padding-left: 15%; /* Add internal padding to keep content centered */
+    padding-right: 15%;
+}

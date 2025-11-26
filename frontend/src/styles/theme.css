@@ -1,0 +1,81 @@
+/* Global theme variables for light/dark mode */
+:root{
+  --bg: #faf8f5;
+  --page-bg: #ffffff;
+  --text: #2a1f0f;
+  --muted: #6b5d4f;
+  --accent: #d4af37; /* gold */
+  --accent-strong: #BC9E54;
+  --border: rgba(42,31,15,0.08);
+  --card-bg: #ffffff;
+  --shadow: 0 2px 16px rgba(42,31,15,0.08);
+  --link: var(--text);
+  --btn-primary-bg: var(--accent);
+  --btn-primary-color: #ffffff;
+}
+
+body.dark-mode{
+  --bg: #0f0f0f;
+  --page-bg: #111111;
+  --text: #f5e8d3;
+  --muted: #b8a88f;
+  --accent: #d4af37;
+  --accent-strong: #D4AF37;
+  --border: rgba(255,255,255,0.06);
+  --card-bg: #1a1a1a;
+  --shadow: 0 2px 16px rgba(0,0,0,0.3);
+  --link: var(--text);
+  --btn-primary-bg: var(--accent);
+  --btn-primary-color: #111;
+}
+
+/* Global rules that use variables so existing components inherit theme */
+html, body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--link);
+}
+
+/* Buttons */
+.btn-primary{
+  background: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-color) !important;
+  border-color: transparent !important;
+}
+
+.btn-ghost{
+  background: transparent !important;
+  color: var(--text) !important;
+  border-color: var(--accent) !important;
+}
+
+/* Cards and panels */
+.card, .product-card, .hero-right .card {
+  background: var(--card-bg) !important;
+  box-shadow: var(--shadow) !important;
+  border-color: var(--border) !important;
+}
+
+/* Navbar */
+.user-navbar, .admin-nav {
+  background: var(--page-bg) !important;
+  color: var(--text) !important;
+  border-bottom-color: var(--accent-strong) !important;
+}
+
+/* Dropdowns, menus */
+.dropdown-menu {
+  background: var(--card-bg) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+/* Small helpers */
+.muted { color: var(--muted) !important; }
+.price { color: var(--accent) !important; font-weight:700 }
+
+/* Make images not flash on theme switch */
+img { transition: filter 0.2s ease; }

@@ -1,0 +1,217 @@
+/* ========================================= */
+/* 🎨 THEME VARIABLES (The Magic Part ✨)    */
+/* ========================================= */
+
+:root {
+    /* ☀️ LIGHT MODE (Default) */
+    --bg-main: #f9f7f4;          /* Cream */
+    --bg-card: #ffffff;          /* White */
+    --text-primary: #2c2216;     /* Dark Brown */
+    --text-secondary: #666666;   /* Muted Gray */
+    --input-bg: #fdfdfd;
+    --input-border: #e0e0e0;
+    --accent-royal: #4169E1;     /* Your Royal Blue */
+    --accent-gold: #caa54e;      /* Aurevra Gold */
+    --focus-ring: rgba(137, 207, 240, 0.4); /* Milky Blue Glow */
+    --focus-border: #89CFF0;     /* Milky Blue */
+    --shadow-soft: 0 15px 35px rgba(44, 34, 22, 0.08);
+    --btn-text: #ffffff;
+}
+
+body.dark-mode {
+    /* 🌙 DARK MODE OVERRIDES */
+    --bg-main: #121212;          /* Deep Black */
+    --bg-card: #1e1e1e;          /* Dark Gray Card */
+    --text-primary: #f5e4c3;     /* Cream Text */
+    --text-secondary: #b0b0b0;   /* Light Gray */
+    --input-bg: #2a2a2a;         /* Dark Input */
+    --input-border: #444444;
+    --accent-royal: #caa54e;     /* Switch to Gold for Button in Dark Mode */
+    --accent-gold: #4169E1;      /* Royal Blue becomes the accent hover */
+    --focus-ring: rgba(65, 105, 225, 0.4); /* Royal Blue Glow */
+    --focus-border: #4169E1;     /* Royal Blue Border */
+    --shadow-soft: 0 15px 35px rgba(0, 0, 0, 0.5);
+    --btn-text: #121212;
+
+    /* 👇 THIS IS THE FIX FOR THE WHITE GAP 👇 */
+    /* Forces the whole browser body to be black, hiding the gap! */
+    background-color: #121212 !important; 
+    color: #f5e4c3; 
+}
+
+/* ========================================= */
+/* 💌 PAGE STYLES                            */
+/* ========================================= */
+
+/* 👇 Added this reset to remove spacing causing the gap */
+.main-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Main Background */
+.contact-section {
+    padding: 80px 20px;
+    background-color: var(--bg-main); /* Uses variable! */
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    
+    /* Ensure no top margin pushes it down */
+    margin-top: 0; 
+}
+
+/* Logo Styling */
+.contact-logo img {
+    height: 60px;
+    width: auto;
+    margin-bottom: 10px;
+    /* Optional: Adds a subtle brightness filter if logo is dark */
+    transition: filter 0.3s ease;
+}
+
+/* Typography */
+.contact-title {
+    font-family: 'Georgia', serif;
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.contact-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+/* Form Container */
+.contact-form {
+    max-width: 500px;
+    width: 100%;
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(202, 165, 78, 0.2); 
+    transition: all 0.3s ease;
+}
+
+/* Inputs */
+.custom-input {
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+}
+
+.custom-input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.custom-input:focus {
+    background-color: var(--bg-card);
+    border-color: var(--focus-border); 
+    box-shadow: 0 0 0 4px var(--focus-ring); 
+    outline: none;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--accent-royal);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: var(--accent-gold); /* Swaps color on hover */
+    color: #ffffff; /* Always white text on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(202, 165, 78, 0.4);
+}
+
+.submit-btn:disabled {
+    background-color: var(--text-secondary);
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Success/Error Messages */
+.alert-message {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    animation: fadeIn 0.5s ease;
+}
+.alert-message.success { color: #28a745; }
+.alert-message.error { color: #dc3545; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Contact Info */
+.contact-info {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-secondary);
+}
+
+.info-item {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.info-item i {
+    color: #caa54e; /* Keep icons Gold always */
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    border: 1px solid var(--input-border);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    background-color: var(--accent-royal);
+    color: var(--btn-text);
+    border-color: var(--accent-royal);
+    transform: translateY(-3px);
+}

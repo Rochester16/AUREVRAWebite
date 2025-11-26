@@ -1,0 +1,188 @@
+/* ========================================= */
+/* 🧭 NAVBAR STYLES                          */
+/* ========================================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: var(--panel, #ffffff); /* Fallback to white */
+    border-bottom: 1px solid var(--border, #e0e0e0);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    height: 80px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* --- LOGO --- */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.nav-logo {
+    height: 45px;
+    width: auto;
+}
+
+.brand-text {
+    font-family: 'Montserrat', sans-serif; /* Or your preferred font */
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: var(--text, #2c2216);
+    text-transform: uppercase;
+}
+
+/* --- LINKS --- */
+.navbar-links {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: var(--text, #2c2216);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+/* Hover Effect (Gold Underline) */
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #caa54e; /* Gold */
+    transition: width 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #caa54e;
+}
+
+.navbar-links a:hover::after {
+    width: 100%;
+}
+
+/* --- ACTIONS (Right Side) --- */
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Search Bar */
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    padding: 8px 15px;
+    padding-right: 35px;
+    border-radius: 20px;
+    border: 1px solid var(--border, #ccc);
+    background-color: var(--bg, #f9f9f9);
+    color: var(--text, #333);
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    width: 200px;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    border-color: #caa54e;
+    width: 220px; /* Slight expand on focus */
+}
+
+.search-box button {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+}
+
+/* Icons */
+.nav-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bg, #f5f5f5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text, #333);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-icon:hover {
+    background-color: #caa54e; /* Gold Hover */
+    color: white;
+    transform: translateY(-2px);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #caa54e;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+/* --- DARK MODE OVERRIDES --- */
+body.dark-mode .navbar {
+    background-color: #1e1e1e; /* Dark Panel */
+    border-color: #333;
+}
+
+body.dark-mode .brand-text { color: #f5e4c3; }
+body.dark-mode .navbar-links a { color: #f5e4c3; }
+body.dark-mode .navbar-links a:hover { color: #caa54e; }
+
+body.dark-mode .nav-icon {
+    background-color: #2a2a2a;
+    color: #f5e4c3;
+}
+
+body.dark-mode .nav-icon:hover {
+    background-color: #caa54e;
+    color: #121212;
+}
+
+body.dark-mode .search-box input {
+    background-color: #2a2a2a;
+    border-color: #444;
+    color: #f5e4c3;
+}
+
+/* Cart badge border fix for dark mode */
+body.dark-mode .cart-badge {
+    border-color: #1e1e1e;
+}

@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* ========================================= */
+/* 🎨 1. GLOBAL THEME VARIABLES              */
+/* ========================================= */
+:root {
+    /* ☀️ LIGHT MODE (Luxury Cream) */
+    --bg-color: #f9f7f4;
+    --card-bg: #ffffff;
+    --text-color: #2c2216;       /* Dark Brown */
+    --text-muted: #6c757d;
+    --accent-gold: #caa54e;
+    --border-color: #e0e0e0;
+    --shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* 🌙 DARK MODE (Deep Luxury Dark) */
+body.dark-mode {
+    --bg-color: #121212;         /* Pitch Black */
+    --card-bg: #1e1e1e;          /* Dark Gray */
+    --text-color: #f5e4c3;       /* Cream Text */
+    --text-muted: #b0b0b0;
+    --accent-gold: #caa54e;      /* Gold stays Gold */
+    --border-color: #333333;
+    --shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* ========================================= */
+/* 🏗️ 2. GLOBAL RESETS (The Foundation)      */
+/* ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Stops side-scrolling issues */
+}
+
+body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    /* 👇 THIS IS THE KEY: Use the variable */
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* React Root must also fill the screen */
+#root {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* ========================================= */
+/* 🌑 3. THE "NUCLEAR" DARK MODE FIX         */
+/* ========================================= */
+
+/* Force specific elements to respect the dark theme if they try to rebel */
+html.dark-mode,
+body.dark-mode,
+body.dark-mode #root {
+    background-color: #121212 !important;
+    color: #f5e4c3 !important;
+}
+
+/* Make all page containers transparent so the global black background shows through */
+body.dark-mode .app-container,
+body.dark-mode .cart-page-container,
+body.dark-mode .shop-page,
+body.dark-mode .wishlist-page,
+body.dark-mode .product-page-wrapper,
+body.dark-mode .main-content {
+    background-color: transparent !important;
+}
+
+/* ========================================= */
+/* 💅 4. GLOBAL UTILITIES                    */
+/* ========================================= */
+
+/* Scrollbar Styling (Optional but looks expensive) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #444;
+}
